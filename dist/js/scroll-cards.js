@@ -1,4 +1,4 @@
-/* Listen for mouse scroll over scroll cards */
+// Listen for mouse scroll over scroll cards
 var screenWidth = window.matchMedia("(min-width: 992px)");
 myFunction(screenWidth); // Call listener function at run time
 screenWidth.addListener(myFunction); // Attach listener function on state changes
