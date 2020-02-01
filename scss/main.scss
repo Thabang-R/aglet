@@ -1,40 +1,19 @@
 /* SCREEN SIZE BREAKPOINTS */
-// Smartphones on portrait view
-@mixin xs {
-  @media (max-width: 575px) {
-    @content;
-  }
-}
-// Small tablets and large smartphones on landscape view
+// Phones up to small tablets
 @mixin sm {
-  @media (min-width: 576px) and (max-width: 767px) {
-    @content;
-  }
-}
-@mixin max-sm {
   @media (max-width: 767px) {
     @content;
   }
 }
 // Small tablets on portrait view
 @mixin md {
-  @media (min-width: 768px) and (max-width: 991px) {
-    @content;
-  }
-}
-@mixin max-md {
-  @media (max-width: 991px) {
+  @media (min-width: 768px) {
     @content;
   }
 }
 // Tablets and small desktops
 @mixin lg {
-  @media (min-width: 992px) and (max-width: 1199px) {
-    @content;
-  }
-}
-@mixin max-lg {
-  @media (max-width: 1199px) {
+  @media (min-width: 992px) {
     @content;
   }
 }
@@ -83,33 +62,32 @@ nav#navbar-nav {
     float: right;
     list-style: none;
     margin: 5px 0;
-
-    @include max-md {
-      width: 100%;
+    width: 100%;
+    @include lg {
+      width: unset;
     }
   }
 
   li {
-    padding: 0px 15px;
-    display: inline-block;
-
-    @include max-md {
-      padding: 5px 0px;
-      display: none;
+    padding: 5px 0px;
+    display: none;
+    @include lg {
+      padding: 0px 15px;
+      display: inline-block;
     }
 
     a {
       position: relative;
-      color: $primary;
+      color: $secondary;
+      font-size: 30px;
+      font-weight: map-get($font-weights, heavy);
       text-decoration: none;
       text-transform: lowercase;
-      font-size: 14px;
-      font-weight: map-get($font-weights, bold);
 
-      @include max-md {
-        color: $secondary;
-        font-size: 30px;
-        font-weight: map-get($font-weights, heavy);
+      @include lg {
+        color: $primary;
+        font-size: 14px;
+        font-weight: map-get($font-weights, bold);
       }
 
       &.active::after {
@@ -128,10 +106,10 @@ nav#navbar-nav {
         left: 0px;
         width: 0px;
         bottom: -5px;
-        background: white;
+        background: $secondary;
         transition: width 300ms;
-        @include max-md {
-          background: black;
+        @include lg {
+          background: $primary;
         }
       }
     }
@@ -173,25 +151,30 @@ nav#navbar-nav {
   }
 
   #navbar-collapse {
-    @include max-sm {
-      width: 100%;
-    }
-    @include max-md {
-      display: block;
-      visibility: hidden;
-      position: fixed;
-      right: 0;
-      top: 0px;
-      background: $primary;
-      height: 100vh;
-      padding: 36vh 25px;
-      transform: translateX(100%);
-      transition: all 0.5s;
-      animation: ease-out;
-      z-index: 9;
-    }
+    width: 100%;
+    display: block;
+    visibility: hidden;
+    position: fixed;
+    right: 0;
+    top: 0px;
+    background: $primary;
+    height: 100vh;
+    padding: 36vh 25px;
+    transform: translateX(100%);
+    transition: all 0.5s;
+    animation: ease-out;
+    z-index: 9;
+
     @include md {
       width: 80%;
+    }
+    @include lg {
+      visibility: visible;
+      position: unset;
+      background: unset;
+      height: unset;
+      padding: unset;
+      transform: none;
     }
   }
   #navbar-collapse.show {
@@ -200,9 +183,10 @@ nav#navbar-nav {
     animation: ease-out;
 
     li {
-      @include max-md {
-        display: block;
-        transform: translate3d(5%, 0, 0);
+      display: block;
+      transform: translate3d(5%, 0, 0);
+      @include lg {
+        transform: none;
       }
     }
   }
@@ -223,27 +207,27 @@ nav#navbar-nav {
   width: 100%;
   -webkit-overflow-scrolling: touch;
   display: flex;
-  overflow-x: scroll;
-  padding: 25vh 0px 15vh 0px;
+  padding: 0px;
+  overflow-x: hidden;
   cursor: grab;
 
-  @include max-md {
-    padding: 0px;
-    overflow-x: hidden;
-  }
   @include lg {
+    overflow-x: scroll;
+    padding: 25vh 0px 15vh 0px;
+  }
+  @include xl {
     padding: 30vh 0px 15vh 0px;
   }
 
   .wrapper {
-    display: flex;
+    display: block;
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: nowrap;
     width: auto;
 
-    @include max-md {
-      display: block;
+    @include lg {
+      display: flex;
     }
   }
 
@@ -257,11 +241,11 @@ nav#navbar-nav {
     outline: none;
     background: unset;
     border: none;
-    width: 34vw;
+    width: 100%;
     opacity: 0;
 
-    @include max-md {
-      width: 100%;
+    @include lg {
+      width: 34vw;
     }
 
     a {
@@ -284,30 +268,32 @@ nav#navbar-nav {
     .caption {
       padding: 0px 25px;
       cursor: grab;
+      top: 35%;
+      position: absolute;
 
-      @include max-md {
-        position: absolute;
-        top: 35%;
+      @include lg {
+        position: unset;
+        top: unset;
       }
 
       h2 {
         margin: 20px 0 10px;
         font-weight: map-get($font-weights, heavy);
-        font-size: 1.5vw;
+        font-size: 7vw;
 
-        @include max-md {
-          font-size: 7vw;
+        @include lg {
+          font-size: 1.5vw;
         }
       }
       h3 {
         margin: 0px;
-        color: $tertiary;
-        font-size: 1.2vw;
+        color: $primary;
+        font-size: 3.25vw;
         font-weight: map-get($font-weights, normal);
 
-        @include max-md {
-          font-size: 3.25vw;
-          color: $primary;
+        @include lg {
+          color: $tertiary;
+          font-size: 1.2vw;
         }
       }
     }
@@ -340,62 +326,79 @@ nav#navbar-nav {
 
 /* CONTACT PAGE */
 #contact {
-  padding: 100px 100px 0px;
+  padding: 120px 0px;
 
-  @include max-md {
-    padding: 60px 0px;
+  @include lg {
+    padding: 140px;
   }
 
   .contact-page {
     .image {
-      @include max-sm {
-        background-image: url("../img/contact-image.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 30vh;
+      background-image: url("../img/contact-image.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top left;
+      padding-bottom: 220%;
 
-        @include max-md {
-          height: 30vh;
-        }
-
-        img {
-          @include max-md {
-            display: none;
-          }
-        }
+      @include lg {
+        padding-bottom: 0px;
+        background-image: unset;
       }
-    }
-    .details {
-      @include max-md {
+
+      img {
+        display: none;
+        @include lg {
+          display: block;
+        }
       }
     }
   }
 
-  h1 {
-    font-size: 13vw;
-    color: #202020;
-    margin-top: 30px;
-    margin-left: -250px;
-    font-weight: map-get($font-weights, bold);
-
-    @include max-md {
+  .details {
+    margin-left: 10vw;
+    margin-top: -88%;
+    width: 100%;
+    z-index: 1;
+    @include lg {
+      margin-left: unset;
+      margin-top: unset;
+      width: 58%;
+    }
+    h1 {
+      color: #202020;
       font-size: 24vw;
-      margin-top: -150px;
-      margin-left: 50px;
-      margin-bottom: 10vh;
-    }
+      margin-top: 0vh;
+      margin-left: 5vw;
+      margin-bottom: 0vh;
+      font-weight: map-get($font-weights, bold);
 
-    @include md {
-      margin-top: 100px;
-      margin-left: -200px;
-    }
-  }
-  .paragraphs {
-    margin-left: 60px;
+      @include md {
+        margin-top: 0px;
+        margin-left: 0px;
+      }
 
-    p {
+      @include lg {
+        font-size: 14vw;
+        margin-left: -16vw;
+        margin-bottom: unset;
+      }
+    }
+    .paragraphs {
+      padding-left: 40vw;
+      padding-right: 15px;
+      @include lg {
+        padding-left: unset;
+        margin-left: 60px;
+      }
+    }
+    p,
+    .share-buttons {
       margin-bottom: 30px;
+      font-size: 3vw;
+
+      @include md {
+        font-size: 16px;
+      }
 
       a {
         color: $primary;

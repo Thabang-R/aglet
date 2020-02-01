@@ -26,40 +26,41 @@ nav#navbar-nav ul {
   float: right;
   list-style: none;
   margin: 5px 0;
+  width: 100%;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   nav#navbar-nav ul {
-    width: 100%;
+    width: unset;
   }
 }
 
 nav#navbar-nav li {
-  padding: 0px 15px;
-  display: inline-block;
+  padding: 5px 0px;
+  display: none;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   nav#navbar-nav li {
-    padding: 5px 0px;
-    display: none;
+    padding: 0px 15px;
+    display: inline-block;
   }
 }
 
 nav#navbar-nav li a {
   position: relative;
-  color: #fefefe;
+  color: #000000;
+  font-size: 30px;
+  font-weight: 800;
   text-decoration: none;
   text-transform: lowercase;
-  font-size: 14px;
-  font-weight: 700;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   nav#navbar-nav li a {
-    color: #000000;
-    font-size: 30px;
-    font-weight: 800;
+    color: #fefefe;
+    font-size: 14px;
+    font-weight: 700;
   }
 }
 
@@ -80,14 +81,14 @@ nav#navbar-nav li a:after {
   left: 0px;
   width: 0px;
   bottom: -5px;
-  background: white;
+  background: #000000;
   -webkit-transition: width 300ms;
   transition: width 300ms;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   nav#navbar-nav li a:after {
-    background: black;
+    background: #fefefe;
   }
 }
 
@@ -131,35 +132,40 @@ nav#navbar-nav .navbar-toggler.close-icon {
   background-image: url("../img/close-icon.svg");
 }
 
-@media (max-width: 767px) {
-  nav#navbar-nav #navbar-collapse {
-    width: 100%;
-  }
+nav#navbar-nav #navbar-collapse {
+  width: 100%;
+  display: block;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  top: 0px;
+  background: #fefefe;
+  height: 100vh;
+  padding: 36vh 25px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-animation: ease-out;
+          animation: ease-out;
+  z-index: 9;
 }
 
-@media (max-width: 991px) {
-  nav#navbar-nav #navbar-collapse {
-    display: block;
-    visibility: hidden;
-    position: fixed;
-    right: 0;
-    top: 0px;
-    background: #fefefe;
-    height: 100vh;
-    padding: 36vh 25px;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-    -webkit-animation: ease-out;
-            animation: ease-out;
-    z-index: 9;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) {
   nav#navbar-nav #navbar-collapse {
     width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  nav#navbar-nav #navbar-collapse {
+    visibility: visible;
+    position: unset;
+    background: unset;
+    height: unset;
+    padding: unset;
+    -webkit-transform: none;
+            transform: none;
   }
 }
 
@@ -171,11 +177,16 @@ nav#navbar-nav #navbar-collapse.show {
           animation: ease-out;
 }
 
-@media (max-width: 991px) {
+nav#navbar-nav #navbar-collapse.show li {
+  display: block;
+  -webkit-transform: translate3d(5%, 0, 0);
+          transform: translate3d(5%, 0, 0);
+}
+
+@media (min-width: 992px) {
   nav#navbar-nav #navbar-collapse.show li {
-    display: block;
-    -webkit-transform: translate3d(5%, 0, 0);
-            transform: translate3d(5%, 0, 0);
+    -webkit-transform: none;
+            transform: none;
   }
 }
 
@@ -196,29 +207,27 @@ nav#navbar-nav #navbar-collapse.show {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow-x: scroll;
-  padding: 25vh 0px 15vh 0px;
+  padding: 0px;
+  overflow-x: hidden;
   cursor: -webkit-grab;
   cursor: grab;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   .scroll-cards {
-    padding: 0px;
-    overflow-x: hidden;
+    overflow-x: scroll;
+    padding: 25vh 0px 15vh 0px;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 1200px) {
   .scroll-cards {
     padding: 30vh 0px 15vh 0px;
   }
 }
 
 .scroll-cards .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -231,9 +240,11 @@ nav#navbar-nav #navbar-collapse.show {
   width: auto;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   .scroll-cards .wrapper {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -256,13 +267,13 @@ nav#navbar-nav #navbar-collapse.show {
   outline: none;
   background: unset;
   border: none;
-  width: 34vw;
+  width: 100%;
   opacity: 0;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   .scroll-cards .card {
-    width: 100%;
+    width: 34vw;
   }
 }
 
@@ -290,38 +301,40 @@ nav#navbar-nav #navbar-collapse.show {
   padding: 0px 25px;
   cursor: -webkit-grab;
   cursor: grab;
+  top: 35%;
+  position: absolute;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   .scroll-cards .card .caption {
-    position: absolute;
-    top: 35%;
+    position: unset;
+    top: unset;
   }
 }
 
 .scroll-cards .card .caption h2 {
   margin: 20px 0 10px;
   font-weight: 800;
-  font-size: 1.5vw;
+  font-size: 7vw;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   .scroll-cards .card .caption h2 {
-    font-size: 7vw;
+    font-size: 1.5vw;
   }
 }
 
 .scroll-cards .card .caption h3 {
   margin: 0px;
-  color: #4a4a4a;
-  font-size: 1.2vw;
+  color: #fefefe;
+  font-size: 3.25vw;
   font-weight: 400;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   .scroll-cards .card .caption h3 {
-    font-size: 3.25vw;
-    color: #fefefe;
+    color: #4a4a4a;
+    font-size: 1.2vw;
   }
 }
 
@@ -353,70 +366,106 @@ nav#navbar-nav #navbar-collapse.show {
 
 /* CONTACT PAGE */
 #contact {
-  padding: 100px 100px 0px;
+  padding: 120px 0px;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 992px) {
   #contact {
-    padding: 60px 0px;
+    padding: 140px;
   }
 }
 
-@media (max-width: 767px) {
+#contact .contact-page .image {
+  background-image: url("../img/contact-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding-bottom: 220%;
+}
+
+@media (min-width: 992px) {
   #contact .contact-page .image {
-    background-image: url("../img/contact-image.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top left;
-    height: 30vh;
+    padding-bottom: 0px;
+    background-image: unset;
   }
 }
 
-@media (max-width: 767px) and (max-width: 991px) {
-  #contact .contact-page .image {
-    height: 30vh;
-  }
+#contact .contact-page .image img {
+  display: none;
 }
 
-@media (max-width: 767px) and (max-width: 991px) {
+@media (min-width: 992px) {
   #contact .contact-page .image img {
-    display: none;
+    display: block;
   }
 }
 
-#contact h1 {
-  font-size: 13vw;
+#contact .details {
+  margin-left: 10vw;
+  margin-top: -88%;
+  width: 100%;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  #contact .details {
+    margin-left: unset;
+    margin-top: unset;
+    width: 58%;
+  }
+}
+
+#contact .details h1 {
   color: #202020;
-  margin-top: 30px;
-  margin-left: -250px;
+  font-size: 24vw;
+  margin-top: 0vh;
+  margin-left: 5vw;
+  margin-bottom: 0vh;
   font-weight: 700;
 }
 
-@media (max-width: 991px) {
-  #contact h1 {
-    font-size: 24vw;
-    margin-top: -150px;
-    margin-left: 50px;
-    margin-bottom: 10vh;
+@media (min-width: 768px) {
+  #contact .details h1 {
+    margin-top: 0px;
+    margin-left: 0px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-  #contact h1 {
-    margin-top: 100px;
-    margin-left: -200px;
+@media (min-width: 992px) {
+  #contact .details h1 {
+    font-size: 14vw;
+    margin-left: -16vw;
+    margin-bottom: unset;
   }
 }
 
-#contact .paragraphs {
-  margin-left: 60px;
+#contact .details .paragraphs {
+  padding-left: 40vw;
+  padding-right: 15px;
 }
 
-#contact .paragraphs p {
+@media (min-width: 992px) {
+  #contact .details .paragraphs {
+    padding-left: unset;
+    margin-left: 60px;
+  }
+}
+
+#contact .details p,
+#contact .details .share-buttons {
   margin-bottom: 30px;
+  font-size: 3vw;
 }
 
-#contact .paragraphs p a {
+@media (min-width: 768px) {
+  #contact .details p,
+  #contact .details .share-buttons {
+    font-size: 16px;
+  }
+}
+
+#contact .details p a,
+#contact .details .share-buttons a {
   color: #fefefe;
 }
 /*# sourceMappingURL=main.css.map */

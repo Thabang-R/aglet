@@ -46,7 +46,7 @@ window.addEventListener("pageshow", function(event) {
 });
 
 /* 2. MOBILE ONLY SCRIPTS */
-var mq = window.matchMedia("@media screen and (min-width: 992px)");
+var mq = window.matchMedia("@media screen and (max-width: 991px)");
 {
   // 2.1 Slide out mobile nav when a link is clicked
   $(".nav-link").click(function() {
