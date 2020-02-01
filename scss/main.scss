@@ -198,7 +198,7 @@ nav#navbar-nav {
   height: 100vh;
   width: 100%;
   background: black;
-  z-index: 1;
+  z-index: 9;
 }
 
 /* SCROLL CARDS */
@@ -329,7 +329,8 @@ nav#navbar-nav {
   padding: 120px 0px;
 
   @include lg {
-    padding: 140px;
+    padding: 120px;
+    padding-bottom: 0px;
   }
 
   .contact-page {
