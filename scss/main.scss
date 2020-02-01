@@ -1,0 +1,341 @@
+@mixin responsive {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
+$primary: #fefefe;
+$secondary: #000000;
+$tertiary: #4a4a4a;
+$tertiary-dark: #202020;
+
+$font-weights: (
+  "normal": 400,
+  "medium": 600,
+  "bold": 700,
+  "heavy": 800
+);
+
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  background: $secondary;
+  color: $primary;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  letter-spacing: 0.25px;
+}
+
+/* NAVBAR */
+nav#navbar-nav {
+  padding: 30px 15px;
+  width: 100vw;
+  z-index: 2;
+  position: fixed;
+  height: 100px;
+
+  ul {
+    float: right;
+    list-style: none;
+    margin: 5px 0;
+
+    @include responsive {
+      width: 100%;
+    }
+  }
+
+  li {
+    padding: 0px 15px;
+    display: inline-block;
+
+    @include responsive {
+      padding: 5px 0px;
+      display: none;
+    }
+
+    a {
+      position: relative;
+      color: $primary;
+      text-decoration: none;
+      text-transform: lowercase;
+      font-size: 14px;
+      font-weight: map-get($font-weights, bold);
+
+      @include responsive {
+        color: $secondary;
+        font-size: 30px;
+        font-weight: map-get($font-weights, heavy);
+      }
+
+      &.active::after {
+        width: 100%;
+      }
+
+      &:hover:after {
+        width: 100%;
+        transition: width 300ms;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 2.5px;
+        left: 0px;
+        width: 0px;
+        bottom: -5px;
+        background: white;
+        transition: width 300ms;
+        @include responsive {
+          display: none;
+        }
+      }
+    }
+
+    a.navbar-brand {
+      display: inline-block;
+      img {
+        height: 30px;
+        width: auto;
+      }
+    }
+
+    .logo-group {
+      animation: flicker 5s infinite, shake 5s infinite;
+    }
+
+    .a-line,
+    .a-letter {
+      animation: shake 5s infinite;
+    }
+  }
+  .navbar-toggler {
+    padding: 0px;
+    border: none;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    outline: none;
+    z-index: 2;
+    width: 20px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: unset;
+    background-image: url("../img/navbar-toggle-icon.svg");
+  }
+  .navbar-toggler.close-icon {
+    background-image: url("../img/close-icon.svg");
+  }
+
+  #navbar-collapse {
+    @include responsive {
+      display: block;
+      visibility: hidden;
+      position: fixed;
+      right: 0;
+      top: 0px;
+      background: $primary;
+      height: 100vh;
+      width: 100%;
+      padding: 36vh 25px;
+      transform: translateX(100%);
+      transition: all 0.5s;
+      animation: ease-out;
+      z-index: 9;
+    }
+  }
+  #navbar-collapse.show {
+    visibility: visible;
+    transform: translateX(0%);
+    animation: ease-out;
+
+    li {
+      @include responsive {
+        display: block;
+        transform: translate3d(5%, 0, 0);
+      }
+    }
+  }
+}
+
+/* PAGE FADER */
+#thefader {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: black;
+  z-index: 1;
+}
+
+/* SCROLL CARDS */
+.scroll-cards {
+  position: relative;
+  width: 100vw;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  overflow-x: hidden;
+  padding: 25vh 0px;
+  cursor: grab;
+
+  @include responsive {
+    padding: 0px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: auto;
+
+    @include responsive {
+      display: block;
+    }
+  }
+
+  .card {
+    flex: 0 0 auto;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    outline: none;
+    background: unset;
+    border: none;
+    width: 34vw;
+    opacity: 0;
+
+    @include responsive {
+      width: 100%;
+    }
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      line-height: 0;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      opacity: 0.85;
+      transition: opacity 300ms;
+
+      &:hover {
+        opacity: 1;
+        transition: opacity 300ms;
+      }
+    }
+
+    .caption {
+      padding: 0px 25px;
+      cursor: grab;
+
+      @include responsive {
+        position: absolute;
+        top: 35%;
+      }
+
+      h2 {
+        margin: 20px 0 10px;
+        font-weight: map-get($font-weights, heavy);
+        font-size: 1.5vw;
+
+        @include responsive {
+          font-size: 7vw;
+        }
+      }
+      h3 {
+        margin: 0px;
+        color: $tertiary;
+        font-size: 1.2vw;
+        font-weight: map-get($font-weights, normal);
+
+        @include responsive {
+          font-size: 3.25vw;
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+  cursor: grab;
+  height: 3px;
+  width: 3px;
+  background: $tertiary;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background: $primary;
+  border-radius: 50px;
+  cursor: grab;
+}
+::-webkit-scrollbar-button {
+  background: $secondary;
+  width: 500px;
+  height: 500px;
+  cursor: grab;
+}
+
+/* CONTACT PAGE */
+#contact {
+  padding: 100px 100px 0px;
+
+  @include responsive {
+    padding: 60px 0px;
+  }
+
+  .contact-page {
+    .image {
+      @include responsive {
+        background-image: url("../img/contact-image.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 30vh;
+
+        img {
+          @include responsive {
+            display: none;
+          }
+        }
+      }
+    }
+    .details {
+      @include responsive {
+      }
+    }
+  }
+
+  h1 {
+    font-size: 13vw;
+    color: #202020;
+    margin-top: 30px;
+    margin-left: -250px;
+    font-weight: map-get($font-weights, bold);
+
+    @include responsive {
+      font-size: 24vw;
+      margin-top: -150px;
+      margin-left: 50px;
+      margin-bottom: 10vh;
+    }
+  }
+  .paragraphs {
+    margin-left: 60px;
+
+    p {
+      margin-bottom: 30px;
+
+      a {
+        color: $primary;
+      }
+    }
+  }
+}
