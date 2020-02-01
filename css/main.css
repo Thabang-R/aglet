@@ -9,7 +9,7 @@ body {
   width: 100%;
   max-width: 100%;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   letter-spacing: 0.25px;
 }
 
@@ -125,11 +125,11 @@ nav#navbar-nav .navbar-toggler {
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: unset;
-  background-image: url("../img/navbar-toggle-icon.svg");
+  background-image: url("assets/img/navbar-toggle-icon.svg");
 }
 
 nav#navbar-nav .navbar-toggler.close-icon {
-  background-image: url("../img/close-icon.svg");
+  background-image: url("assets/img/close-icon.svg");
 }
 
 nav#navbar-nav #navbar-collapse {
@@ -377,7 +377,7 @@ nav#navbar-nav #navbar-collapse.show li {
 }
 
 #contact .contact-page .image {
-  background-image: url("../img/contact-image.jpg");
+  background-image: url("assets/img/contact-image.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top left;
