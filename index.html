@@ -212,9 +212,9 @@
   <script src="dist/js/main.js"></script>
   <script src="dist/js/scroll-cards.js"></script>
   <script>
-    var mq = window.matchMedia("@media screen and (min-width: 992px)");
-    {
-      if (mq.matches) {
+    function myFunction(screenWidth) {
+      if (screenWidth.matches) {
+        // If media query matches
         $(document).ready(function() {
           $("html, body, *").mousewheel(function(e, delta) {
             this.scrollLeft -= delta;
@@ -224,5 +224,8 @@
       } else {
       }
     }
+    var screenWidth = window.matchMedia("(min-width: 992px)");
+    myFunction(screenWidth); // Call listener function at run time
+    screenWidth.addListener(myFunction); // Attach listener function on state changes
   </script>
 </html>
