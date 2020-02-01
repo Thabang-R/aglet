@@ -1,5 +1,46 @@
-@mixin responsive {
+/* SCREEN SIZE BREAKPOINTS */
+// Smartphones on portrait view
+@mixin xs {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+// Small tablets and large smartphones on landscape view
+@mixin sm {
+  @media (min-width: 576px) and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin max-sm {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+// Small tablets on portrait view
+@mixin md {
+  @media (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin max-md {
   @media (max-width: 991px) {
+    @content;
+  }
+}
+// Tablets and small desktops
+@mixin lg {
+  @media (min-width: 992px) and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin max-lg {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+// Large tablets and desktops
+@mixin xl {
+  @media (min-width: 1200px) {
     @content;
   }
 }
@@ -43,7 +84,7 @@ nav#navbar-nav {
     list-style: none;
     margin: 5px 0;
 
-    @include responsive {
+    @include max-md {
       width: 100%;
     }
   }
@@ -52,7 +93,7 @@ nav#navbar-nav {
     padding: 0px 15px;
     display: inline-block;
 
-    @include responsive {
+    @include max-md {
       padding: 5px 0px;
       display: none;
     }
@@ -65,7 +106,7 @@ nav#navbar-nav {
       font-size: 14px;
       font-weight: map-get($font-weights, bold);
 
-      @include responsive {
+      @include max-md {
         color: $secondary;
         font-size: 30px;
         font-weight: map-get($font-weights, heavy);
@@ -89,7 +130,7 @@ nav#navbar-nav {
         bottom: -5px;
         background: white;
         transition: width 300ms;
-        @include responsive {
+        @include max-md {
           display: none;
         }
       }
@@ -132,7 +173,10 @@ nav#navbar-nav {
   }
 
   #navbar-collapse {
-    @include responsive {
+    @include max-sm {
+      width: 100%;
+    }
+    @include max-md {
       display: block;
       visibility: hidden;
       position: fixed;
@@ -140,7 +184,7 @@ nav#navbar-nav {
       top: 0px;
       background: $primary;
       height: 100vh;
-      width: 100%;
+      width: 80%;
       padding: 36vh 25px;
       transform: translateX(100%);
       transition: all 0.5s;
@@ -154,7 +198,7 @@ nav#navbar-nav {
     animation: ease-out;
 
     li {
-      @include responsive {
+      @include max-md {
         display: block;
         transform: translate3d(5%, 0, 0);
       }
@@ -177,12 +221,16 @@ nav#navbar-nav {
   width: 100%;
   -webkit-overflow-scrolling: touch;
   display: flex;
-  overflow-x: hidden;
-  padding: 25vh 0px;
+  overflow-x: scroll;
+  padding: 25vh 0px 15vh 0px;
   cursor: grab;
 
-  @include responsive {
+  @include max-md {
     padding: 0px;
+    overflow-x: hidden;
+  }
+  @include lg {
+    padding: 30vh 0px 15vh 0px;
   }
 
   .wrapper {
@@ -192,7 +240,7 @@ nav#navbar-nav {
     flex-wrap: nowrap;
     width: auto;
 
-    @include responsive {
+    @include max-md {
       display: block;
     }
   }
@@ -210,7 +258,7 @@ nav#navbar-nav {
     width: 34vw;
     opacity: 0;
 
-    @include responsive {
+    @include max-md {
       width: 100%;
     }
 
@@ -235,7 +283,7 @@ nav#navbar-nav {
       padding: 0px 25px;
       cursor: grab;
 
-      @include responsive {
+      @include max-md {
         position: absolute;
         top: 35%;
       }
@@ -245,7 +293,7 @@ nav#navbar-nav {
         font-weight: map-get($font-weights, heavy);
         font-size: 1.5vw;
 
-        @include responsive {
+        @include max-md {
           font-size: 7vw;
         }
       }
@@ -255,7 +303,7 @@ nav#navbar-nav {
         font-size: 1.2vw;
         font-weight: map-get($font-weights, normal);
 
-        @include responsive {
+        @include max-md {
           font-size: 3.25vw;
           color: $primary;
         }
@@ -264,36 +312,41 @@ nav#navbar-nav {
   }
 }
 
-/* CUSTOM SCROLLBAR */
-::-webkit-scrollbar {
-  cursor: grab;
-  height: 3px;
-  width: 3px;
-  background: $tertiary;
-}
-::-webkit-scrollbar-thumb:horizontal {
-  background: $primary;
-  border-radius: 50px;
-  cursor: grab;
-}
-::-webkit-scrollbar-button {
-  background: $secondary;
-  width: 500px;
-  height: 500px;
-  cursor: grab;
+// Custom Scrollbar
+#home {
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 280px;
+    height: 280px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: $primary;
+    transition: all 300ms;
+  }
+  ::-webkit-scrollbar-track {
+    background: $tertiary;
+    border: 0px;
+  }
 }
 
 /* CONTACT PAGE */
 #contact {
   padding: 100px 100px 0px;
 
-  @include responsive {
+  @include max-md {
     padding: 60px 0px;
   }
 
   .contact-page {
     .image {
-      @include responsive {
+      @include max-md {
         background-image: url("../img/contact-image.jpg");
         background-size: cover;
         background-repeat: no-repeat;
@@ -301,14 +354,14 @@ nav#navbar-nav {
         height: 30vh;
 
         img {
-          @include responsive {
+          @include max-md {
             display: none;
           }
         }
       }
     }
     .details {
-      @include responsive {
+      @include max-md {
       }
     }
   }
@@ -320,7 +373,7 @@ nav#navbar-nav {
     margin-left: -250px;
     font-weight: map-get($font-weights, bold);
 
-    @include responsive {
+    @include max-md {
       font-size: 24vw;
       margin-top: -150px;
       margin-left: 50px;
