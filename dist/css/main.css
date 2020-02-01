@@ -15,7 +15,7 @@ body {
 /* NAVBAR */
 nav#navbar-nav {
   padding: 30px 15px;
-  width: 100vw;
+  width: 100%;
   z-index: 2;
   position: fixed;
   height: 100px;
@@ -179,7 +179,7 @@ nav#navbar-nav #navbar-collapse.show {
 /* SCROLL CARDS */
 .scroll-cards {
   position: relative;
-  width: 100vw;
+  width: 100%;
   -webkit-overflow-scrolling: touch;
   display: -webkit-box;
   display: -ms-flexbox;
