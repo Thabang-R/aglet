@@ -52,7 +52,7 @@ var mq = window.matchMedia("@media screen and (min-width: 992px)");
   $(".nav-link").click(function() {
     setTimeout(function() {
       $("#navbar-collapse").removeClass("show");
-    }, 500);
+    }, 200);
   });
 
   // 2.2 Fade in nav links on mobile menu toggle

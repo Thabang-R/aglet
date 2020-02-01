@@ -131,7 +131,7 @@ nav#navbar-nav {
         background: white;
         transition: width 300ms;
         @include max-md {
-          display: none;
+          background: black;
         }
       }
     }
@@ -184,12 +184,14 @@ nav#navbar-nav {
       top: 0px;
       background: $primary;
       height: 100vh;
-      width: 80%;
       padding: 36vh 25px;
       transform: translateX(100%);
       transition: all 0.5s;
       animation: ease-out;
       z-index: 9;
+    }
+    @include md {
+      width: 80%;
     }
   }
   #navbar-collapse.show {
@@ -346,12 +348,16 @@ nav#navbar-nav {
 
   .contact-page {
     .image {
-      @include max-md {
+      @include max-sm {
         background-image: url("../img/contact-image.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top left;
         height: 30vh;
+
+        @include max-md {
+          height: 30vh;
+        }
 
         img {
           @include max-md {
@@ -378,6 +384,11 @@ nav#navbar-nav {
       margin-top: -150px;
       margin-left: 50px;
       margin-bottom: 10vh;
+    }
+
+    @include md {
+      margin-top: 100px;
+      margin-left: -200px;
     }
   }
   .paragraphs {

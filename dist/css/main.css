@@ -87,7 +87,7 @@ nav#navbar-nav li a:after {
 
 @media (max-width: 991px) {
   nav#navbar-nav li a:after {
-    display: none;
+    background: black;
   }
 }
 
@@ -146,7 +146,6 @@ nav#navbar-nav .navbar-toggler.close-icon {
     top: 0px;
     background: #fefefe;
     height: 100vh;
-    width: 80%;
     padding: 36vh 25px;
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
@@ -155,6 +154,12 @@ nav#navbar-nav .navbar-toggler.close-icon {
     -webkit-animation: ease-out;
             animation: ease-out;
     z-index: 9;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  nav#navbar-nav #navbar-collapse {
+    width: 80%;
   }
 }
 
@@ -357,7 +362,7 @@ nav#navbar-nav #navbar-collapse.show {
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   #contact .contact-page .image {
     background-image: url("../img/contact-image.jpg");
     background-size: cover;
@@ -367,7 +372,13 @@ nav#navbar-nav #navbar-collapse.show {
   }
 }
 
-@media (max-width: 991px) and (max-width: 991px) {
+@media (max-width: 767px) and (max-width: 991px) {
+  #contact .contact-page .image {
+    height: 30vh;
+  }
+}
+
+@media (max-width: 767px) and (max-width: 991px) {
   #contact .contact-page .image img {
     display: none;
   }
@@ -387,6 +398,13 @@ nav#navbar-nav #navbar-collapse.show {
     margin-top: -150px;
     margin-left: 50px;
     margin-bottom: 10vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #contact h1 {
+    margin-top: 100px;
+    margin-left: -200px;
   }
 }
 
