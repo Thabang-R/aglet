@@ -86,6 +86,7 @@ nav#navbar-nav {
       font-weight: map-get($font-weights, heavy);
       text-decoration: none;
       text-transform: lowercase;
+      padding: 0px;
 
       @include lg {
         color: $primary;
@@ -216,10 +217,10 @@ nav#navbar-nav {
 
   @include lg {
     overflow-x: scroll;
-    padding: 25vh 0px 15vh 0px;
+    padding: 25vh 0px 9vh 0px;
   }
   @include xl {
-    padding: 30vh 0px 15vh 0px;
+    padding: 25vh 0px 12.5vh 0px;
   }
 
   .wrapper {
@@ -248,7 +249,7 @@ nav#navbar-nav {
     opacity: 0;
 
     @include lg {
-      width: 34vw;
+      width: 36vw;
     }
 
     a {
@@ -310,8 +311,8 @@ nav#navbar-nav {
     height: 2px;
   }
   ::-webkit-scrollbar-button {
-    width: 280px;
-    height: 280px;
+    width: 19vw;
+    height: 19vw;
   }
   ::-webkit-scrollbar-thumb {
     background: #ccc;
