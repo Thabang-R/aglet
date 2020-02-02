@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>cases - Aglet</title>
+    <title>Grow up - Aglet</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Main CSS -->
@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark static-top" id="navbar-nav">
       <div class="container-fluid">
         <a class="navbar-brand d-none d-lg-block" href="index.html">
-          <svg id="aglet-logo" width="150px" height="30px" viewBox="0 0 300 66">
+          <svg id="aglet-logo" width="120px" height="30px" viewBox="0 0 300 66">
             <style type="text/css">
               .logo-group {
                 fill: #ffffff;
@@ -67,10 +67,19 @@
 
   <section class="page-content" id="single">
     <div class="animated delay-800" id="thefader"></div>
-    <div class="row contact-page w-100 m-0">
-      <video class="my-video w-100" poster="assets/img/image-1.jpg" muted autoplay loop">
-        <source src="assets/videos/video-1.mp4" type="video/mp4" />
-      </video>
+      <div class="row single-video w-100 m-0">
+        <div class="header d-none d-md-block">
+          <video poster="assets/img/image-1.jpg" muted autoplay loop>
+            <source src="assets/videos/video-1.mp4" type="video/mp4" />
+          </video>
+          <div class="title">Grow up</div>
+        </div>
+        <div class="header d-md-none">
+          <div class="bg-img d-md-none" style="background-image:url('assets/img/image-1.jpg')">
+            <div class="title">Grow up</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

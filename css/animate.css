@@ -1477,6 +1477,38 @@
   animation-name: fadeInLeft;
 }
 
+@-webkit-keyframes fadeInLeftS {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeftS {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fadeInLeftS {
+  -webkit-animation-name: fadeInLeftS;
+  animation-name: fadeInLeftS;
+}
+
 @-webkit-keyframes fadeInLeftBig {
   from {
     opacity: 0;

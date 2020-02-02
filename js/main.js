@@ -1,7 +1,7 @@
 /* 1. GLOBAL SCRIPTS */
 // 1.1 Remove fader on page load
 $(window).ready(function() {
-  $("#thefader").removeClass("slideInRight");
+  $("#thefader").removeClass("slideInLeft");
   $("#thefader").addClass("slideOutRight");
 });
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
       fader.addEventListener("animationend", listener);
 
       event.preventDefault();
-      fader.classList.add("slideInRight");
+      fader.classList.add("slideInLeft");
       fader.classList.remove("slideOutRight");
     });
   }
@@ -41,7 +41,7 @@ window.addEventListener("pageshow", function(event) {
     return;
   }
   var fader = document.getElementById("thefader");
-  fader.classList.remove("slideInRight");
+  fader.classList.remove("slideInLeft");
   fader.classList.add("slideOutRight");
 });
 

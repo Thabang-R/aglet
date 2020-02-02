@@ -39,6 +39,6 @@ function myFunction(screenWidth) {
 $(".scroll-cards .card").each(function(i, el) {
   var $this = $(this);
   setTimeout(function() {
-    $this.addClass("animated fadeInRight");
+    $this.addClass("animated fadeInLeftS");
   }, i * 200); // milliseconds
 });

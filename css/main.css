@@ -520,4 +520,43 @@ nav#navbar-nav #navbar-collapse.show li {
 #contact .details .share-buttons a {
   color: #fefefe;
 }
+
+/* SINGLE PAGE */
+.header video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.header .bg-img {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.header .title {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  font-size: 14vw;
+  font-weight: 800;
+  padding: 40vh 30px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .header .title {
+    font-size: 10vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .header .title {
+    padding: 34vh 15vw;
+    text-align: left;
+  }
+}
 /*# sourceMappingURL=main.css.map */
