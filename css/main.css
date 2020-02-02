@@ -468,6 +468,54 @@ nav#navbar-nav #navbar-collapse.show li {
   }
 }
 
+#contact .details p ul,
+#contact .details .share-buttons ul {
+  display: inline-block;
+  list-style: none;
+  padding-left: 20px;
+}
+
+#contact .details p ul li,
+#contact .details .share-buttons ul li {
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+#contact .details p ul li a,
+#contact .details .share-buttons ul li a {
+  font-size: 20px;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  padding: 8px;
+  display: block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+#contact .details p ul li.facebook a:hover,
+#contact .details .share-buttons ul li.facebook a:hover {
+  background: #3b5998;
+}
+
+#contact .details p ul li.twitter a:hover,
+#contact .details .share-buttons ul li.twitter a:hover {
+  background: #55acee;
+}
+
+#contact .details p ul li.g-plus a:hover,
+#contact .details .share-buttons ul li.g-plus a:hover {
+  background: #dc4a38;
+}
+
+#contact .details p ul li.whatsapp a:hover,
+#contact .details .share-buttons ul li.whatsapp a:hover {
+  background: #25d366;
+}
+
 #contact .details p a,
 #contact .details .share-buttons a {
   color: #fefefe;

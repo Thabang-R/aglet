@@ -405,6 +405,41 @@ nav#navbar-nav {
         font-size: 16px;
       }
 
+      ul {
+        display: inline-block;
+        list-style: none;
+        padding-left: 20px;
+
+        li {
+          display: inline-block;
+          margin-right: 10px;
+          text-align: center;
+          transition: all 300ms;
+
+          a {
+            font-size: 20px;
+            transition: all 300ms;
+            padding: 8px;
+            display: block;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+          }
+          &.facebook a:hover {
+            background: #3b5998;
+          }
+          &.twitter a:hover {
+            background: #55acee;
+          }
+          &.g-plus a:hover {
+            background: #dc4a38;
+          }
+          &.whatsapp a:hover {
+            background: #25d366;
+          }
+        }
+      }
+
       a {
         color: $primary;
       }
