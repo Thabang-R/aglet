@@ -9,8 +9,13 @@ body {
   width: 100%;
   max-width: 100%;
   position: relative;
-  overflow: hidden;
   letter-spacing: 0.25px;
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: hidden;
+  }
 }
 
 /* NAVBAR */
@@ -62,31 +67,28 @@ nav#navbar-nav li a {
     font-size: 14px;
     font-weight: 700;
   }
+  nav#navbar-nav li a.active::after {
+    width: 100%;
+  }
+  nav#navbar-nav li a:hover:after {
+    width: 100%;
+    -webkit-transition: width 300ms;
+    transition: width 300ms;
+  }
+  nav#navbar-nav li a:after {
+    content: "";
+    position: absolute;
+    height: 2.5px;
+    left: 0px;
+    width: 0px;
+    bottom: -5px;
+    background: #000000;
+    -webkit-transition: width 300ms;
+    transition: width 300ms;
+  }
 }
 
-nav#navbar-nav li a.active::after {
-  width: 100%;
-}
-
-nav#navbar-nav li a:hover:after {
-  width: 100%;
-  -webkit-transition: width 300ms;
-  transition: width 300ms;
-}
-
-nav#navbar-nav li a:after {
-  content: "";
-  position: absolute;
-  height: 2.5px;
-  left: 0px;
-  width: 0px;
-  bottom: -5px;
-  background: #000000;
-  -webkit-transition: width 300ms;
-  transition: width 300ms;
-}
-
-@media (min-width: 992px) {
+@media (min-width: 992px) and (min-width: 992px) {
   nav#navbar-nav li a:after {
     background: #fefefe;
   }

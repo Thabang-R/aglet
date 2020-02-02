@@ -46,8 +46,11 @@ body {
   width: 100%;
   max-width: 100%;
   position: relative;
-  overflow: hidden;
   letter-spacing: 0.25px;
+
+  @include lg {
+    overflow: hidden;
+  }
 }
 
 /* NAVBAR */
@@ -88,28 +91,28 @@ nav#navbar-nav {
         color: $primary;
         font-size: 14px;
         font-weight: map-get($font-weights, bold);
-      }
 
-      &.active::after {
-        width: 100%;
-      }
+        &.active::after {
+          width: 100%;
+        }
 
-      &:hover:after {
-        width: 100%;
-        transition: width 300ms;
-      }
+        &:hover:after {
+          width: 100%;
+          transition: width 300ms;
+        }
 
-      &:after {
-        content: "";
-        position: absolute;
-        height: 2.5px;
-        left: 0px;
-        width: 0px;
-        bottom: -5px;
-        background: $secondary;
-        transition: width 300ms;
-        @include lg {
-          background: $primary;
+        &:after {
+          content: "";
+          position: absolute;
+          height: 2.5px;
+          left: 0px;
+          width: 0px;
+          bottom: -5px;
+          background: $secondary;
+          transition: width 300ms;
+          @include lg {
+            background: $primary;
+          }
         }
       }
     }
