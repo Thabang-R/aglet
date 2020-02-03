@@ -277,6 +277,7 @@ nav#navbar-nav {
       cursor: grab;
       top: 35%;
       position: absolute;
+      width: 100%;
 
       @include lg {
         position: unset;
@@ -470,17 +471,28 @@ nav#navbar-nav {
     position: absolute;
     width: 100%;
     z-index: 1;
-    font-size: 14vw;
+    font-size: 12vw;
     font-weight: map-get($font-weights, heavy);
     padding: 40vh 30px;
     text-align: center;
+    line-height: 1;
+    /*
+    &.long {
+      @include lg {
+        padding: 36vh 15vw;
+      }
+      @include md {
+        font-size: 6vw;
+      }
+    }
+    */
 
     @include md {
-      font-size: 10vw;
+      font-size: 8vw;
     }
 
     @include lg {
-      padding: 34vh 15vw;
+      padding: 30vh 15vw;
       text-align: left;
     }
   }

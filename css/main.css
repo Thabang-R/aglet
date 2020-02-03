@@ -306,6 +306,7 @@ nav#navbar-nav #navbar-collapse.show li {
   cursor: grab;
   top: 35%;
   position: absolute;
+  width: 100%;
 }
 
 @media (min-width: 992px) {
@@ -542,21 +543,32 @@ nav#navbar-nav #navbar-collapse.show li {
   position: absolute;
   width: 100%;
   z-index: 1;
-  font-size: 14vw;
+  font-size: 12vw;
   font-weight: 800;
   padding: 40vh 30px;
   text-align: center;
+  line-height: 1;
+  /*
+    &.long {
+      @include lg {
+        padding: 36vh 15vw;
+      }
+      @include md {
+        font-size: 6vw;
+      }
+    }
+    */
 }
 
 @media (min-width: 768px) {
   .header .title {
-    font-size: 10vw;
+    font-size: 8vw;
   }
 }
 
 @media (min-width: 992px) {
   .header .title {
-    padding: 34vh 15vw;
+    padding: 30vh 15vw;
     text-align: left;
   }
 }
