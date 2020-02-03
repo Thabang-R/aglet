@@ -393,8 +393,13 @@ nav#navbar-nav {
       }
     }
     .paragraphs {
-      padding-left: 40vw;
+      padding-left: 37.5vw;
       padding-right: 15px;
+
+      @include md {
+        padding-left: 40vw;
+      }
+
       @include lg {
         padding-left: unset;
         margin-left: 60px;
@@ -412,22 +417,35 @@ nav#navbar-nav {
       ul {
         display: inline-block;
         list-style: none;
-        padding-left: 20px;
+        padding-left: 10px;
+
+        @include md {
+          padding-left: 20px;
+        }
 
         li {
           display: inline-block;
-          margin-right: 10px;
           text-align: center;
           transition: all 300ms;
 
+          @include md {
+            margin-right: 10px;
+          }
           a {
-            font-size: 20px;
-            transition: all 300ms;
-            padding: 8px;
             display: block;
-            width: 45px;
-            height: 45px;
             border-radius: 50%;
+            font-size: 14px;
+            padding: 6px;
+            width: 35px;
+            height: 35px;
+            transition: all 300ms;
+
+            @include md {
+              font-size: 20px;
+              padding: 8px;
+              width: 45px;
+              height: 45px;
+            }
           }
           &.facebook a:hover {
             background: #3b5998;
