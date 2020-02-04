@@ -31,12 +31,11 @@ nav#navbar-nav ul {
   float: right;
   list-style: none;
   margin: 5px 0;
-  width: 100%;
 }
 
-@media (min-width: 992px) {
+@media (max-width: 991px) {
   nav#navbar-nav ul {
-    width: unset;
+    width: 100%;
   }
 }
 
@@ -138,15 +137,6 @@ nav#navbar-nav .navbar-toggler.close-icon {
 nav#navbar-nav #navbar-collapse {
   width: 100%;
   display: block;
-  visibility: hidden;
-  position: fixed;
-  right: 0;
-  top: 0px;
-  background: #fefefe;
-  height: 100vh;
-  padding: 36vh 25px;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   -webkit-animation: ease-out;
@@ -154,21 +144,23 @@ nav#navbar-nav #navbar-collapse {
   z-index: 9;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 991px) {
   nav#navbar-nav #navbar-collapse {
-    width: 80%;
+    visibility: hidden;
+    position: fixed;
+    right: 0;
+    top: 0px;
+    background: #fefefe;
+    height: 100vh;
+    padding: 36vh 25px;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   nav#navbar-nav #navbar-collapse {
-    visibility: visible;
-    position: unset;
-    background: unset;
-    height: unset;
-    padding: unset;
-    -webkit-transform: none;
-            transform: none;
+    width: 80%;
   }
 }
 
@@ -274,9 +266,17 @@ nav#navbar-nav #navbar-collapse.show li {
   opacity: 0;
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .scroll-cards .card {
+    background: transparent;
+    opacity: 1;
+  }
+}
+
 @media (min-width: 992px) {
   .scroll-cards .card {
     width: 36vw;
+    display: block;
   }
 }
 
@@ -307,6 +307,12 @@ nav#navbar-nav #navbar-collapse.show li {
   top: 35%;
   position: absolute;
   width: 100%;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .scroll-cards .card .caption {
+    position: relative;
+  }
 }
 
 @media (min-width: 992px) {
@@ -412,6 +418,12 @@ nav#navbar-nav #navbar-collapse.show li {
   z-index: 1;
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  #contact .details {
+    margin-top: -55%;
+  }
+}
+
 @media (min-width: 992px) {
   #contact .details {
     margin-left: unset;
@@ -444,6 +456,12 @@ nav#navbar-nav #navbar-collapse.show li {
   }
 }
 
+@media all and (min-width: 992px) and (-ms-high-contrast: none), (min-width: 992px) and (-ms-high-contrast: active) {
+  #contact .details h1 {
+    margin-left: 10vw;
+  }
+}
+
 #contact .details .paragraphs {
   padding-left: 37.5vw;
   padding-right: 15px;
@@ -452,6 +470,12 @@ nav#navbar-nav #navbar-collapse.show li {
 @media (min-width: 768px) {
   #contact .details .paragraphs {
     padding-left: 40vw;
+  }
+}
+
+@media all and (min-width: 768px) and (-ms-high-contrast: none), (min-width: 768px) and (-ms-high-contrast: active) {
+  #contact .details .paragraphs {
+    padding-left: 30vw;
   }
 }
 

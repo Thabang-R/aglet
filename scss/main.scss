@@ -11,6 +11,11 @@
     @content;
   }
 }
+@mixin max-md {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
 // Tablets and small desktops
 @mixin lg {
   @media (min-width: 992px) {
@@ -20,6 +25,12 @@
 // Large tablets and desktops
 @mixin xl {
   @media (min-width: 1200px) {
+    @content;
+  }
+}
+// Long existential sigh...Internet Explorer
+@mixin ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     @content;
   }
 }
@@ -67,9 +78,9 @@ nav#navbar-nav {
     float: right;
     list-style: none;
     margin: 5px 0;
-    width: 100%;
-    @include lg {
-      width: unset;
+
+    @include max-md {
+      width: 100%;
     }
   }
 
@@ -159,28 +170,23 @@ nav#navbar-nav {
   #navbar-collapse {
     width: 100%;
     display: block;
-    visibility: hidden;
-    position: fixed;
-    right: 0;
-    top: 0px;
-    background: $primary;
-    height: 100vh;
-    padding: 36vh 25px;
-    transform: translateX(100%);
     transition: all 0.5s;
     animation: ease-out;
     z-index: 9;
 
+    @include max-md {
+      visibility: hidden;
+      position: fixed;
+      right: 0;
+      top: 0px;
+      background: $primary;
+      height: 100vh;
+      padding: 36vh 25px;
+      transform: translateX(100%);
+    }
+
     @include md {
       width: 80%;
-    }
-    @include lg {
-      visibility: visible;
-      position: unset;
-      background: unset;
-      height: unset;
-      padding: unset;
-      transform: none;
     }
   }
   #navbar-collapse.show {
@@ -250,8 +256,14 @@ nav#navbar-nav {
     width: 100%;
     opacity: 0;
 
+    @include ie {
+      background: transparent;
+      opacity: 1;
+    }
+
     @include lg {
       width: 36vw;
+      display: block;
     }
 
     a {
@@ -278,6 +290,10 @@ nav#navbar-nav {
       top: 35%;
       position: absolute;
       width: 100%;
+
+      @include ie {
+        position: relative;
+      }
 
       @include lg {
         position: unset;
@@ -368,11 +384,17 @@ nav#navbar-nav {
     margin-top: -88%;
     width: 100%;
     z-index: 1;
+
+    @include ie {
+      margin-top: -55%;
+    }
+
     @include lg {
       margin-left: unset;
       margin-top: unset;
       width: 58%;
     }
+
     h1 {
       color: #202020;
       font-size: 24vw;
@@ -390,6 +412,10 @@ nav#navbar-nav {
         font-size: 14vw;
         margin-left: -16vw;
         margin-bottom: unset;
+
+        @include ie {
+          margin-left: 10vw;
+        }
       }
     }
     .paragraphs {
@@ -398,6 +424,10 @@ nav#navbar-nav {
 
       @include md {
         padding-left: 40vw;
+
+        @include ie {
+          padding-left: 30vw;
+        }
       }
 
       @include lg {
